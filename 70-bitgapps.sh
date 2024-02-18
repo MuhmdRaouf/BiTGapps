@@ -47,6 +47,7 @@ print_title() {
 
 list_files() {
 cat <<EOF
+@ROOTFS@app/WebView/WebView.apk
 @ROOTFS@app/Markup/Markup.apk
 @ROOTFS@app/Markup/lib/arm64/libsketchology_native.so
 @ROOTFS@app/Maps/Maps.apk
@@ -126,6 +127,7 @@ case "$1" in
     trampoline
     print_title "BiTGApps Restore Complete"
     for f in $SYS $SYS/product $SYS/system_ext $P; do
+      find $f -type d -iname '*WebView*' -exec rm -rf {} +
       find $f -type d -iname '*Markup*' -exec rm -rf {} +
       find $f -type d -iname '*Maps*' -exec rm -rf {} +
       find $f -type d -iname '*GLH*' -exec rm -rf {} +
