@@ -47,11 +47,15 @@ print_title() {
 
 list_files() {
 cat <<EOF
+@ROOTFS@app/Calendar/Calendar.apk
+@ROOTFS@app/Contacts/Contacts.apk
+@ROOTFS@app/Gboard/Gboard.apk
 @ROOTFS@app/GoogleCalendarSyncAdapter/GoogleCalendarSyncAdapter.apk
 @ROOTFS@app/GoogleContactsSyncAdapter/GoogleContactsSyncAdapter.apk
 @ROOTFS@app/GoogleExtShared/GoogleExtShared.apk
 @ROOTFS@app/Speech/Speech.apk
 @ROOTFS@priv-app/ConfigUpdater/ConfigUpdater.apk
+@ROOTFS@priv-app/Dialer/Dialer.apk
 @ROOTFS@priv-app/Gearhead/Gearhead.apk
 @ROOTFS@priv-app/GmsCoreSetupPrebuilt/GmsCoreSetupPrebuilt.apk
 @ROOTFS@priv-app/GoogleBackupTransport/GoogleBackupTransport.apk
@@ -100,6 +104,13 @@ case "$1" in
   restore)
     trampoline
     print_title "BiTGApps Restore Complete"
+    for f in $SYS $SYS/product $SYS/system_ext $P; do
+      find $f -type d -iname 'Calendar' -exec rm -rf {} +
+      find $f -type d -iname 'Etar' -exec rm -rf {} +
+      find $f -type d -iname 'Contacts' -exec rm -rf {} +
+      find $f -type d -iname 'LatinIME' -exec rm -rf {} +
+      find $f -type d -iname '*Dialer*' -exec rm -rf {} +
+    done
     if [ "$setup_config" = "true" ]; then
       for f in $SYS $SYS/product $SYS/system_ext $P; do
         find $f -type d -iname '*Provision*' -exec rm -rf {} +

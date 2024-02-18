@@ -26,12 +26,16 @@ print_title() {
 
 list_files() {
 cat <<EOF
+Calendar
+Contacts
+Gboard
 GoogleCalendarSyncAdapter
 GoogleContactsSyncAdapter
 GoogleExtShared
 Speech
 ConfigUpdater
 Gearhead
+Dialer
 GmsCoreSetupPrebuilt
 GoogleBackupTransport
 GoogleExtServices

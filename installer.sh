@@ -4,6 +4,7 @@
 BITGAPPS="
 tar/core/ConfigUpdater.tar.xz
 tar/core/Gearhead.tar.xz
+tar/core/Dialer.tar.xz
 tar/core/GmsCoreSetupPrebuilt.tar.xz
 tar/core/GoogleExtServices.tar.xz
 tar/core/GoogleLoginService.tar.xz
@@ -11,6 +12,9 @@ tar/core/GoogleServicesFramework.tar.xz
 tar/core/Phonesky.tar.xz
 tar/core/PrebuiltGmsCore.tar.xz
 tar/core/Velvet.tar.xz
+tar/etc/Calendar.tar.xz
+tar/etc/Contacts.tar.xz
+tar/etc/Gboard.tar.xz
 tar/etc/GoogleCalendarSyncAdapter.tar.xz
 tar/etc/GoogleContactsSyncAdapter.tar.xz
 tar/etc/GoogleExtShared.tar.xz
@@ -691,20 +695,30 @@ fi
 
 # Cleanup
 for f in $SYSTEM $SYSTEM/product $SYSTEM/system_ext $P; do
+  find $f -type d -iname 'Calendar' -exec rm -rf {} +
+  find $f -type d -iname 'Etar' -exec rm -rf {} +
+  find $f -type d -iname 'Contacts' -exec rm -rf {} +
+  find $f -type d -iname 'Gboard' -exec rm -rf {} +
+  find $f -type d -iname 'LatinIME' -exec rm -rf {} +
   find $f -type d -iname 'Speech' -exec rm -rf {} +
   find $f -type d -iname 'Gearhead' -exec rm -rf {} +
   find $f -type d -iname 'Velvet' -exec rm -rf {} +
+  find $f -type d -iname '*Dialer*' -exec rm -rf {} +
 done
 
 # Google Apps Packages
 ui_print "- Installing GApps"
 for f in $BITGAPPS; do unzip -oq "$ZIPFILE" "$f" -d "$TMP"; done
+tar -xf $ZIP_FILE/etc/Calendar.tar.xz -C $TMP_SYS
+tar -xf $ZIP_FILE/etc/Contacts.tar.xz -C $TMP_SYS
+tar -xf $ZIP_FILE/etc/Gboard.tar.xz -C $TMP_SYS
 tar -xf $ZIP_FILE/etc/GoogleCalendarSyncAdapter.tar.xz -C $TMP_SYS
 tar -xf $ZIP_FILE/etc/GoogleContactsSyncAdapter.tar.xz -C $TMP_SYS
 tar -xf $ZIP_FILE/etc/GoogleExtShared.tar.xz -C $TMP_SYS
 tar -xf $ZIP_FILE/etc/Speech.tar.xz -C $TMP_SYS
 tar -xf $ZIP_FILE/core/ConfigUpdater.tar.xz -C $TMP_PRIV
 tar -xf $ZIP_FILE/core/Gearhead.tar.xz -C $TMP_PRIV
+tar -xf $ZIP_FILE/core/Dialer.tar.xz -C $TMP_PRIV
 tar -xf $ZIP_FILE/core/GmsCoreSetupPrebuilt.tar.xz -C $TMP_PRIV 2>/dev/null
 tar -xf $ZIP_FILE/core/GoogleExtServices.tar.xz -C $TMP_PRIV
 tar -xf $ZIP_FILE/core/GoogleLoginService.tar.xz -C $TMP_PRIV 2>/dev/null
@@ -784,6 +798,11 @@ tar -xf $ZIP_FILE/Certificate.tar.xz -C "$TMP_FSVERITY"
 # Helper Functions
 extracted
 
+# Override
+for i in Dialer Calendar Etar Contacts LatinIME; do
+  $MAGISK && override app priv-app product system_ext touch .replace
+  $MAGISK || backward app priv-app product system_ext mknod
+done
 
 # FIXIT: OVERRIDE REPLACE
 for f in $CALENDAR $CONTACTS $DESKCLOCK $DIALER; do
