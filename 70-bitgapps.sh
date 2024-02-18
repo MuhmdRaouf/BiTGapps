@@ -47,6 +47,8 @@ print_title() {
 
 list_files() {
 cat <<EOF
+@ROOTFS@app/Maps/Maps.apk
+@ROOTFS@app/GLH/GLH.apk
 @ROOTFS@app/Gmail/Gmail.apk
 @ROOTFS@app/Chrome/Chrome.apk
 @ROOTFS@app/Sandbox/Sandbox.apk
@@ -122,6 +124,8 @@ case "$1" in
     trampoline
     print_title "BiTGApps Restore Complete"
     for f in $SYS $SYS/product $SYS/system_ext $P; do
+      find $f -type d -iname '*Maps*' -exec rm -rf {} +
+      find $f -type d -iname '*GLH*' -exec rm -rf {} +
       find $f -type d -iname '*Gmail*' -exec rm -rf {} +
       find $f -type d -iname '*Via*' -exec rm -rf {} +
       find $f -type d -iname '*Browser*' -exec rm -rf {} +

@@ -26,6 +26,7 @@ print_title() {
 
 list_files() {
 cat <<EOF
+Maps
 Gmail
 Chrome
 Sandbox
