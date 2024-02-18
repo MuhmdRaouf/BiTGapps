@@ -29,10 +29,12 @@ cat <<EOF
 Calendar
 Contacts
 Gboard
+DeskClock
 GoogleCalendarSyncAdapter
 GoogleContactsSyncAdapter
 GoogleExtShared
 Speech
+Photos
 ConfigUpdater
 Gearhead
 Dialer
@@ -42,10 +44,13 @@ GoogleExtServices
 GoogleLoginService
 GoogleRestore
 GoogleServicesFramework
+Messaging
+Services
 Phonesky
 PrebuiltGmsCore
 SetupWizardPrebuilt
 Velvet
+Wellbeing
 EOF
 }
 

@@ -50,10 +50,20 @@ cat <<EOF
 @ROOTFS@app/Calendar/Calendar.apk
 @ROOTFS@app/Contacts/Contacts.apk
 @ROOTFS@app/Gboard/Gboard.apk
+@ROOTFS@app/DeskClock/DeskClock.apk
 @ROOTFS@app/GoogleCalendarSyncAdapter/GoogleCalendarSyncAdapter.apk
 @ROOTFS@app/GoogleContactsSyncAdapter/GoogleContactsSyncAdapter.apk
 @ROOTFS@app/GoogleExtShared/GoogleExtShared.apk
 @ROOTFS@app/Speech/Speech.apk
+@ROOTFS@app/Photos/Photos.apk
+@ROOTFS@app/Photos/lib/arm/libcronet.102.0.4973.2.so
+@ROOTFS@app/Photos/lib/arm/libfilterframework_jni.so
+@ROOTFS@app/Photos/lib/arm/libflacJNI.so
+@ROOTFS@app/Photos/lib/arm/libframesequence.so
+@ROOTFS@app/Photos/lib/arm/libnative_crash_handler_jni.so
+@ROOTFS@app/Photos/lib/arm/libnative.so
+@ROOTFS@app/Photos/lib/arm/liboliveoil.so
+@ROOTFS@app/Photos/lib/arm/libwebp_android.so
 @ROOTFS@priv-app/ConfigUpdater/ConfigUpdater.apk
 @ROOTFS@priv-app/Dialer/Dialer.apk
 @ROOTFS@priv-app/Gearhead/Gearhead.apk
@@ -63,10 +73,13 @@ cat <<EOF
 @ROOTFS@priv-app/GoogleLoginService/GoogleLoginService.apk
 @ROOTFS@priv-app/GoogleRestore/GoogleRestore.apk
 @ROOTFS@priv-app/GoogleServicesFramework/GoogleServicesFramework.apk
+@ROOTFS@priv-app/Messaging/Messaging.apk
+@ROOTFS@priv-app/Services/Services.apk
 @ROOTFS@priv-app/Phonesky/Phonesky.apk
 @ROOTFS@priv-app/PrebuiltGmsCore/PrebuiltGmsCore.apk
 @ROOTFS@priv-app/SetupWizardPrebuilt/SetupWizardPrebuilt.apk
 @ROOTFS@priv-app/Velvet/Velvet.apk
+@ROOTFS@priv-app/Wellbeing/Wellbeing.apk
 @ROOTFS@etc/default-permissions/default-permissions.xml
 @ROOTFS@etc/default-permissions/bitgapps-permissions.xml
 @ROOTFS@etc/default-permissions/bitgapps-permissions-q.xml
@@ -110,6 +123,9 @@ case "$1" in
       find $f -type d -iname 'Contacts' -exec rm -rf {} +
       find $f -type d -iname 'LatinIME' -exec rm -rf {} +
       find $f -type d -iname '*Dialer*' -exec rm -rf {} +
+      find $f -type d -iname '*Clock*' -exec rm -rf {} +
+      find $f -type d -iname '*Messaging*' -exec rm -rf {} +
+      find $f -type d -iname '*Gallery*' -exec rm -rf {} +
     done
     if [ "$setup_config" = "true" ]; then
       for f in $SYS $SYS/product $SYS/system_ext $P; do

@@ -9,16 +9,21 @@ tar/core/GmsCoreSetupPrebuilt.tar.xz
 tar/core/GoogleExtServices.tar.xz
 tar/core/GoogleLoginService.tar.xz
 tar/core/GoogleServicesFramework.tar.xz
+tar/core/Messaging.tar.xz
+tar/core/Services.tar.xz
 tar/core/Phonesky.tar.xz
 tar/core/PrebuiltGmsCore.tar.xz
 tar/core/Velvet.tar.xz
 tar/etc/Calendar.tar.xz
 tar/etc/Contacts.tar.xz
 tar/etc/Gboard.tar.xz
+tar/core/Wellbeing.tar.xz
+tar/etc/DeskClock.tar.xz
 tar/etc/GoogleCalendarSyncAdapter.tar.xz
 tar/etc/GoogleContactsSyncAdapter.tar.xz
 tar/etc/GoogleExtShared.tar.xz
 tar/etc/Speech.tar.xz
+tar/etc/Photos.tar.xz
 tar/Sysconfig.tar.xz
 tar/Default.tar.xz
 tar/Permissions.tar.xz
@@ -704,6 +709,12 @@ for f in $SYSTEM $SYSTEM/product $SYSTEM/system_ext $P; do
   find $f -type d -iname 'Gearhead' -exec rm -rf {} +
   find $f -type d -iname 'Velvet' -exec rm -rf {} +
   find $f -type d -iname '*Dialer*' -exec rm -rf {} +
+  find $f -type d -iname '*Clock*' -exec rm -rf {} +
+  find $f -type d -iname '*Messaging*' -exec rm -rf {} +
+  find $f -type d -iname 'Services' -exec rm -rf {} +
+  find $f -type d -iname '*Gallery*' -exec rm -rf {} +
+  find $f -type d -iname '*Photos*' -exec rm -rf {} +
+  find $f -type d -iname '*Wellbeing*' -exec rm -rf {} +
 done
 
 # Google Apps Packages
@@ -712,10 +723,12 @@ for f in $BITGAPPS; do unzip -oq "$ZIPFILE" "$f" -d "$TMP"; done
 tar -xf $ZIP_FILE/etc/Calendar.tar.xz -C $TMP_SYS
 tar -xf $ZIP_FILE/etc/Contacts.tar.xz -C $TMP_SYS
 tar -xf $ZIP_FILE/etc/Gboard.tar.xz -C $TMP_SYS
+tar -xf $ZIP_FILE/etc/DeskClock.tar.xz -C $TMP_SYS
 tar -xf $ZIP_FILE/etc/GoogleCalendarSyncAdapter.tar.xz -C $TMP_SYS
 tar -xf $ZIP_FILE/etc/GoogleContactsSyncAdapter.tar.xz -C $TMP_SYS
 tar -xf $ZIP_FILE/etc/GoogleExtShared.tar.xz -C $TMP_SYS
 tar -xf $ZIP_FILE/etc/Speech.tar.xz -C $TMP_SYS
+tar -xf $ZIP_FILE/etc/Photos.tar.xz -C $TMP_SYS
 tar -xf $ZIP_FILE/core/ConfigUpdater.tar.xz -C $TMP_PRIV
 tar -xf $ZIP_FILE/core/Gearhead.tar.xz -C $TMP_PRIV
 tar -xf $ZIP_FILE/core/Dialer.tar.xz -C $TMP_PRIV
@@ -723,9 +736,12 @@ tar -xf $ZIP_FILE/core/GmsCoreSetupPrebuilt.tar.xz -C $TMP_PRIV 2>/dev/null
 tar -xf $ZIP_FILE/core/GoogleExtServices.tar.xz -C $TMP_PRIV
 tar -xf $ZIP_FILE/core/GoogleLoginService.tar.xz -C $TMP_PRIV 2>/dev/null
 tar -xf $ZIP_FILE/core/GoogleServicesFramework.tar.xz -C $TMP_PRIV
+tar -xf $ZIP_FILE/core/Messaging.tar.xz -C $TMP_PRIV
+tar -xf $ZIP_FILE/core/Services.tar.xz -C $TMP_PRIV
 tar -xf $ZIP_FILE/core/Phonesky.tar.xz -C $TMP_PRIV
 tar -xf $ZIP_FILE/core/PrebuiltGmsCore.tar.xz -C $TMP_PRIV
 tar -xf $ZIP_FILE/core/Velvet.tar.xz -C $TMP_PRIV
+tar -xf $ZIP_FILE/core/Wellbeing.tar.xz -C $TMP_PRIV
 tar -xf $ZIP_FILE/Sysconfig.tar.xz -C $TMP_SYSCONFIG
 tar -xf $ZIP_FILE/Default.tar.xz -C $TMP_DEFAULT
 tar -xf $ZIP_FILE/Permissions.tar.xz -C $TMP_PERMISSION
@@ -799,7 +815,7 @@ tar -xf $ZIP_FILE/Certificate.tar.xz -C "$TMP_FSVERITY"
 extracted
 
 # Override
-for i in Dialer Calendar Etar Contacts LatinIME; do
+for i in Dialer Calendar Etar Contacts LatinIME DeskClock messaging Gallery2 SimpleGallery; do
   $MAGISK && override app priv-app product system_ext touch .replace
   $MAGISK || backward app priv-app product system_ext mknod
 done
