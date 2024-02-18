@@ -26,6 +26,8 @@ print_title() {
 
 list_files() {
 cat <<EOF
+Chrome
+Sandbox
 Calculator
 Calendar
 Contacts

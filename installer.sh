@@ -2,6 +2,8 @@
 
 # List of GApps Packages
 BITGAPPS="
+tar/etc/Chrome.tar.xz
+tar/etc/Sandbox.tar.xz
 tar/etc/Calculator.tar.xz
 tar/core/ConfigUpdater.tar.xz
 tar/core/Gearhead.tar.xz
@@ -701,6 +703,11 @@ fi
 
 # Cleanup
 for f in $SYSTEM $SYSTEM/product $SYSTEM/system_ext $P; do
+  find $f -type d -iname '*Browser*' -exec rm -rf {} +
+  find $f -type d -iname '*Jelly*' -exec rm -rf {} +
+  find $f -type d -iname '*Via*' -exec rm -rf {} +
+  find $f -type d -iname '*Chrome*' -exec rm -rf {} +
+  find $f -type d -iname '*Sandbox*' -exec rm -rf {} +
   find $f -type d -iname 'Calendar' -exec rm -rf {} +
   find $f -type d -iname 'Etar' -exec rm -rf {} +
   find $f -type d -iname 'Contacts' -exec rm -rf {} +
@@ -722,6 +729,8 @@ done
 # Google Apps Packages
 ui_print "- Installing GApps"
 for f in $BITGAPPS; do unzip -oq "$ZIPFILE" "$f" -d "$TMP"; done
+tar -xf $ZIP_FILE/etc/Chrome.tar.xz -C $TMP_SYS
+tar -xf $ZIP_FILE/etc/Sandbox.tar.xz -C $TMP_SYS
 tar -xf $ZIP_FILE/etc/Calculator.tar.xz -C $TMP_SYS
 tar -xf $ZIP_FILE/etc/Calendar.tar.xz -C $TMP_SYS
 tar -xf $ZIP_FILE/etc/Contacts.tar.xz -C $TMP_SYS
@@ -818,7 +827,7 @@ tar -xf $ZIP_FILE/Certificate.tar.xz -C "$TMP_FSVERITY"
 extracted
 
 # Override
-for i in Dialer Calendar Etar Contacts LatinIME DeskClock messaging Gallery2 SimpleGallery Calculator; do
+for i in Dialer Calendar Etar Contacts LatinIME DeskClock messaging Gallery2 SimpleGallery Calculator Chrome Sandbox; do
   $MAGISK && override app priv-app product system_ext touch .replace
   $MAGISK || backward app priv-app product system_ext mknod
 done
