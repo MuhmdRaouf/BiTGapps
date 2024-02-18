@@ -50,7 +50,9 @@ cat <<EOF
 @ROOTFS@app/GoogleCalendarSyncAdapter/GoogleCalendarSyncAdapter.apk
 @ROOTFS@app/GoogleContactsSyncAdapter/GoogleContactsSyncAdapter.apk
 @ROOTFS@app/GoogleExtShared/GoogleExtShared.apk
+@ROOTFS@app/Speech/Speech.apk
 @ROOTFS@priv-app/ConfigUpdater/ConfigUpdater.apk
+@ROOTFS@priv-app/Gearhead/Gearhead.apk
 @ROOTFS@priv-app/GmsCoreSetupPrebuilt/GmsCoreSetupPrebuilt.apk
 @ROOTFS@priv-app/GoogleBackupTransport/GoogleBackupTransport.apk
 @ROOTFS@priv-app/GoogleExtServices/GoogleExtServices.apk
@@ -60,6 +62,7 @@ cat <<EOF
 @ROOTFS@priv-app/Phonesky/Phonesky.apk
 @ROOTFS@priv-app/PrebuiltGmsCore/PrebuiltGmsCore.apk
 @ROOTFS@priv-app/SetupWizardPrebuilt/SetupWizardPrebuilt.apk
+@ROOTFS@priv-app/Velvet/Velvet.apk
 @ROOTFS@etc/default-permissions/default-permissions.xml
 @ROOTFS@etc/default-permissions/bitgapps-permissions.xml
 @ROOTFS@etc/default-permissions/bitgapps-permissions-q.xml

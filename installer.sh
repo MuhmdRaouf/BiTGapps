@@ -3,15 +3,18 @@
 # List of GApps Packages
 BITGAPPS="
 tar/core/ConfigUpdater.tar.xz
+tar/core/Gearhead.tar.xz
 tar/core/GmsCoreSetupPrebuilt.tar.xz
 tar/core/GoogleExtServices.tar.xz
 tar/core/GoogleLoginService.tar.xz
 tar/core/GoogleServicesFramework.tar.xz
 tar/core/Phonesky.tar.xz
 tar/core/PrebuiltGmsCore.tar.xz
+tar/core/Velvet.tar.xz
 tar/etc/GoogleCalendarSyncAdapter.tar.xz
 tar/etc/GoogleContactsSyncAdapter.tar.xz
 tar/etc/GoogleExtShared.tar.xz
+tar/etc/Speech.tar.xz
 tar/Sysconfig.tar.xz
 tar/Default.tar.xz
 tar/Permissions.tar.xz
@@ -686,6 +689,12 @@ if $PRODUCT && [ "$android_sdk" = "34" ]; then
   find $P -type f -iname '*bitgapps*' -exec rm -rf {} +
 fi
 
+# Cleanup
+for f in $SYSTEM $SYSTEM/product $SYSTEM/system_ext $P; do
+  find $f -type d -iname 'Speech' -exec rm -rf {} +
+  find $f -type d -iname 'Gearhead' -exec rm -rf {} +
+  find $f -type d -iname 'Velvet' -exec rm -rf {} +
+done
 
 # Google Apps Packages
 ui_print "- Installing GApps"
@@ -693,13 +702,16 @@ for f in $BITGAPPS; do unzip -oq "$ZIPFILE" "$f" -d "$TMP"; done
 tar -xf $ZIP_FILE/etc/GoogleCalendarSyncAdapter.tar.xz -C $TMP_SYS
 tar -xf $ZIP_FILE/etc/GoogleContactsSyncAdapter.tar.xz -C $TMP_SYS
 tar -xf $ZIP_FILE/etc/GoogleExtShared.tar.xz -C $TMP_SYS
+tar -xf $ZIP_FILE/etc/Speech.tar.xz -C $TMP_SYS
 tar -xf $ZIP_FILE/core/ConfigUpdater.tar.xz -C $TMP_PRIV
+tar -xf $ZIP_FILE/core/Gearhead.tar.xz -C $TMP_PRIV
 tar -xf $ZIP_FILE/core/GmsCoreSetupPrebuilt.tar.xz -C $TMP_PRIV 2>/dev/null
 tar -xf $ZIP_FILE/core/GoogleExtServices.tar.xz -C $TMP_PRIV
 tar -xf $ZIP_FILE/core/GoogleLoginService.tar.xz -C $TMP_PRIV 2>/dev/null
 tar -xf $ZIP_FILE/core/GoogleServicesFramework.tar.xz -C $TMP_PRIV
 tar -xf $ZIP_FILE/core/Phonesky.tar.xz -C $TMP_PRIV
 tar -xf $ZIP_FILE/core/PrebuiltGmsCore.tar.xz -C $TMP_PRIV
+tar -xf $ZIP_FILE/core/Velvet.tar.xz -C $TMP_PRIV
 tar -xf $ZIP_FILE/Sysconfig.tar.xz -C $TMP_SYSCONFIG
 tar -xf $ZIP_FILE/Default.tar.xz -C $TMP_DEFAULT
 tar -xf $ZIP_FILE/Permissions.tar.xz -C $TMP_PERMISSION

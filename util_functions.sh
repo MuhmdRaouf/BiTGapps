@@ -5,7 +5,7 @@ version="v2.7"
 versionCode="27"
 
 # Define Installation Size
-CAPACITY="255732"
+CAPACITY="673528"
 
 # Define Excluded Size
 EXCLUDE="21128"
@@ -29,7 +29,9 @@ cat <<EOF
 GoogleCalendarSyncAdapter
 GoogleContactsSyncAdapter
 GoogleExtShared
+Speech
 ConfigUpdater
+Gearhead
 GmsCoreSetupPrebuilt
 GoogleBackupTransport
 GoogleExtServices
@@ -39,6 +41,7 @@ GoogleServicesFramework
 Phonesky
 PrebuiltGmsCore
 SetupWizardPrebuilt
+Velvet
 EOF
 }
 
