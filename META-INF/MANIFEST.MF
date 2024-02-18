@@ -1,0 +1,93 @@
+Manifest-Version: 1.0
+Created-By: 1.0 (Android SignApk)
+
+Name: META-INF/com/google/android/updater-script
+SHA1-Digest: ABDJuVNsP6NxJh0A6/mci5l9tzs=
+
+Name: uninstall.sh
+SHA1-Digest: Dc8yyjhNMc9jz+hsFPAO1IRgFJk=
+
+Name: util_functions.sh
+SHA1-Digest: YLHd42eZpBWakrDhlYDfRDR16kY=
+
+Name: busybox-arm
+SHA1-Digest: b3TTdd4KT6YuQovJcAVMh00gBcE=
+
+Name: tar/etc/GoogleCalendarSyncAdapter.tar.xz
+SHA1-Digest: FooyqNtgVsUZpHaNsYTUtHATbmY=
+
+Name: tar/etc/GoogleContactsSyncAdapter.tar.xz
+SHA1-Digest: KGEM3lddRgwkvYNoy7KVmXpelVI=
+
+Name: tar/Permissions.tar.xz
+SHA1-Digest: yEX8dtB+jIGW9qE6awnrmcHR88I=
+
+Name: 70-bitgapps.sh
+SHA1-Digest: CoeahQGMJFGXfQ3VsE3O0kV3rUs=
+
+Name: tar/framework/MapsFramework.tar.xz
+SHA1-Digest: aPoyoWJqy3l+LbRXxJ2JsG40T4Q=
+
+Name: tar/Default.tar.xz
+SHA1-Digest: B6SsMHXZfUwptRcIRGGZfYohafo=
+
+Name: tar/Certificate.tar.xz
+SHA1-Digest: ApD7f2EEfJjiygj/5VpsfbHS5Pw=
+
+Name: customize.sh
+SHA1-Digest: 9/zKB3mUSk4WV6akizB1gGnIw0s=
+
+Name: tar/framework/DialerFramework.tar.xz
+SHA1-Digest: mRmO/Qs2GgYFiQpfrjxTp9goc+Y=
+
+Name: installer.sh
+SHA1-Digest: nyFdXm+0hk4OqV1r3edwmtyEO9g=
+
+Name: tar/Sysconfig.tar.xz
+SHA1-Digest: oCge89yLFUFc3A0j8AevQ9UQKOA=
+
+Name: LICENSE
+SHA1-Digest: d4AZBTxNqU1gf+khLQ+x3yQj5Q8=
+
+Name: tar/core/GoogleRestore.tar.xz
+SHA1-Digest: jl80hkcvPvwsylXG4IrBTSXLV+w=
+
+Name: tar/core/GoogleExtServices.tar.xz
+SHA1-Digest: 72t5Rke9dTVm81UXAcr0R/Ob/uM=
+
+Name: tar/core/PrebuiltGmsCore.tar.xz
+SHA1-Digest: rgj0ZdMqCuV4HxvquhXuGvoEH7E=
+
+Name: META-INF/com/google/android/update-binary
+SHA1-Digest: 9/zKB3mUSk4WV6akizB1gGnIw0s=
+
+Name: tar/core/Phonesky.tar.xz
+SHA1-Digest: 1mlaSb5xC11HKFP3Ei5pkvo549A=
+
+Name: tar/core/ConfigUpdater.tar.xz
+SHA1-Digest: Tf8flg4CORoSoFjycbQkDCAlF3M=
+
+Name: tar/framework/DialerPermissions.tar.xz
+SHA1-Digest: iZqD1aK6brJ9Qp8uEuRA7agvQiY=
+
+Name: tar/core/GoogleServicesFramework.tar.xz
+SHA1-Digest: Wtpq4ukDaPIXyjTRHbQyv6sFm+0=
+
+Name: tar/etc/GoogleExtShared.tar.xz
+SHA1-Digest: uRosmtUaMi6Vo8M0Y3pw4zYyPJs=
+
+Name: module.prop
+SHA1-Digest: NN9lfun69GYznMHVbOEhAfr3UM8=
+
+Name: tar/framework/MapsPermissions.tar.xz
+SHA1-Digest: mgte+1IDeBt8CMDbe30+N3hbYKw=
+
+Name: tar/core/SetupWizardPrebuilt.tar.xz
+SHA1-Digest: JjfYnekq65OsNX8Ur93/ldZtIfk=
+
+Name: tar/Preferred.tar.xz
+SHA1-Digest: 2mXA5tie2tBPCDS0zfaY03BArMQ=
+
+Name: tar/overlay/PlayStoreOverlay.tar.xz
+SHA1-Digest: SOAOF6MfkMhCHoEL8sAVHS77lZo=
+
