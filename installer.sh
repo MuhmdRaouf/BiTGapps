@@ -2,6 +2,7 @@
 
 # List of GApps Packages
 BITGAPPS="
+tar/etc/Calculator.tar.xz
 tar/core/ConfigUpdater.tar.xz
 tar/core/Gearhead.tar.xz
 tar/core/Dialer.tar.xz
@@ -708,6 +709,7 @@ for f in $SYSTEM $SYSTEM/product $SYSTEM/system_ext $P; do
   find $f -type d -iname 'Speech' -exec rm -rf {} +
   find $f -type d -iname 'Gearhead' -exec rm -rf {} +
   find $f -type d -iname 'Velvet' -exec rm -rf {} +
+  find $f -type d -iname '*Calculator*' -exec rm -rf {} +
   find $f -type d -iname '*Dialer*' -exec rm -rf {} +
   find $f -type d -iname '*Clock*' -exec rm -rf {} +
   find $f -type d -iname '*Messaging*' -exec rm -rf {} +
@@ -720,6 +722,7 @@ done
 # Google Apps Packages
 ui_print "- Installing GApps"
 for f in $BITGAPPS; do unzip -oq "$ZIPFILE" "$f" -d "$TMP"; done
+tar -xf $ZIP_FILE/etc/Calculator.tar.xz -C $TMP_SYS
 tar -xf $ZIP_FILE/etc/Calendar.tar.xz -C $TMP_SYS
 tar -xf $ZIP_FILE/etc/Contacts.tar.xz -C $TMP_SYS
 tar -xf $ZIP_FILE/etc/Gboard.tar.xz -C $TMP_SYS
@@ -815,7 +818,7 @@ tar -xf $ZIP_FILE/Certificate.tar.xz -C "$TMP_FSVERITY"
 extracted
 
 # Override
-for i in Dialer Calendar Etar Contacts LatinIME DeskClock messaging Gallery2 SimpleGallery; do
+for i in Dialer Calendar Etar Contacts LatinIME DeskClock messaging Gallery2 SimpleGallery Calculator; do
   $MAGISK && override app priv-app product system_ext touch .replace
   $MAGISK || backward app priv-app product system_ext mknod
 done

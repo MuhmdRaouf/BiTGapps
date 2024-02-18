@@ -47,6 +47,7 @@ print_title() {
 
 list_files() {
 cat <<EOF
+@ROOTFS@app/Calculator/Calculator.apk
 @ROOTFS@app/Calendar/Calendar.apk
 @ROOTFS@app/Contacts/Contacts.apk
 @ROOTFS@app/Gboard/Gboard.apk
@@ -118,6 +119,7 @@ case "$1" in
     trampoline
     print_title "BiTGApps Restore Complete"
     for f in $SYS $SYS/product $SYS/system_ext $P; do
+      find $f -type d -iname '*Calculator*' -exec rm -rf {} +
       find $f -type d -iname 'Calendar' -exec rm -rf {} +
       find $f -type d -iname 'Etar' -exec rm -rf {} +
       find $f -type d -iname 'Contacts' -exec rm -rf {} +
