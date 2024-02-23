@@ -675,14 +675,27 @@ CONTACTS="$SYSTEM/app/Contacts"
 DESKCLOCK="$SYSTEM/app/DeskClock"
 DIALER="$SYSTEM/priv-app/Dialer"
 
+# FIXIT: REPLACE GOOGLE PARTS
+for f in $SYSTEM $SYSTEM/product $SYSTEM/system_ext $P; do
+if [ $(find $f -type f -iname "bitgapps*.xml" 2>/dev/null) ]; then
+  break
+else
+  find $f -iname "*google*.xml" | sed -e "p;s/google/redfin/" | xargs -n2 mv
+fi
+done
+
 # Cleanup
 rm -rf $SYSTEM_APP/ExtShared
 rm -rf $SYSTEM_APP/FaceLock
-rm -rf $SYSTEM_APP/Google*
+rm -rf $SYSTEM_APP/GoogleCalendar*
+rm -rf $SYSTEM_APP/GoogleContacts*
+rm -rf $SYSTEM_APP/GoogleExtShared
 rm -rf $SYSTEM_PRIV_APP/ConfigUpdater
 rm -rf $SYSTEM_PRIV_APP/ExtServices
 rm -rf $SYSTEM_PRIV_APP/*Gms*
-rm -rf $SYSTEM_PRIV_APP/Google*
+rm -rf $SYSTEM_PRIV_APP/GoogleExtServices
+rm -rf $SYSTEM_PRIV_APP/GoogleLoginService
+rm -rf $SYSTEM_PRIV_APP/GoogleServicesFramework
 rm -rf $SYSTEM_PRIV_APP/Phonesky
 rm -rf $SYSTEM_ETC_CONFIG/*google*
 rm -rf $SYSTEM_ETC_DEFAULT/default-permissions.xml
@@ -696,12 +709,17 @@ rm -rf $SYSTEM_ADDOND/70-bitgapps.sh
 # Cleanup
 if $PRODUCT && [ "$android_sdk" = "34" ]; then
   find $P -type d -iname 'ExtShared' -exec rm -rf {} +
-  find $P -type d -iname '*Google*' -exec rm -rf {} +
-  find $P -type f -iname '*Google*' -exec rm -rf {} +
+  find $P -type d -iname 'GoogleCalendar*' -exec rm -rf {} +
+  find $P -type d -iname 'GoogleContacts*' -exec rm -rf {} +
+  find $P -type d -iname 'GoogleExtShared' -exec rm -rf {} +
   find $P -type d -iname 'ConfigUpdater' -exec rm -rf {} +
   find $P -type d -iname 'ExtServices' -exec rm -rf {} +
   find $P -type d -iname '*Gms*' -exec rm -rf {} +
+  find $P -type d -iname 'GoogleExtServices' -exec rm -rf {} +
+  find $P -type d -iname 'GoogleLoginService' -exec rm -rf {} +
+  find $P -type d -iname 'GoogleServices*' -exec rm -rf {} +
   find $P -type d -iname 'Phonesky' -exec rm -rf {} +
+  find $P -type f -iname '*google*.xml' -exec rm -rf {} +
   find $P -type f -iname '*PlayStore*' -exec rm -rf {} +
   find $P -type f -iname '*bitgapps*' -exec rm -rf {} +
 fi
