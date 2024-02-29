@@ -28,8 +28,6 @@ list_files() {
 cat <<EOF
 WebView
 Markup
-Chrome
-Sandbox
 Calculator
 Calendar
 Contacts
