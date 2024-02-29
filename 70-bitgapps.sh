@@ -50,8 +50,6 @@ cat <<EOF
 @ROOTFS@app/WebView/WebView.apk
 @ROOTFS@app/Markup/Markup.apk
 @ROOTFS@app/Markup/lib/arm64/libsketchology_native.so
-@ROOTFS@app/Maps/Maps.apk
-@ROOTFS@app/GLH/GLH.apk
 @ROOTFS@app/Chrome/Chrome.apk
 @ROOTFS@app/Sandbox/Sandbox.apk
 @ROOTFS@app/Calculator/Calculator.apk
@@ -128,8 +126,6 @@ case "$1" in
     for f in $SYS $SYS/product $SYS/system_ext $P; do
       find $f -type d -iname '*WebView*' -exec rm -rf {} +
       find $f -type d -iname '*Markup*' -exec rm -rf {} +
-      find $f -type d -iname '*Maps*' -exec rm -rf {} +
-      find $f -type d -iname '*GLH*' -exec rm -rf {} +
       find $f -type d -iname '*Via*' -exec rm -rf {} +
       find $f -type d -iname '*Browser*' -exec rm -rf {} +
       find $f -type d -iname '*Jelly*' -exec rm -rf {} +

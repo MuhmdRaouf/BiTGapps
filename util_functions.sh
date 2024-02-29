@@ -28,7 +28,6 @@ list_files() {
 cat <<EOF
 WebView
 Markup
-Maps
 Chrome
 Sandbox
 Calculator
