@@ -52,7 +52,6 @@ cat <<EOF
 @ROOTFS@app/Markup/lib/arm64/libsketchology_native.so
 @ROOTFS@app/Maps/Maps.apk
 @ROOTFS@app/GLH/GLH.apk
-@ROOTFS@app/Gmail/Gmail.apk
 @ROOTFS@app/Chrome/Chrome.apk
 @ROOTFS@app/Sandbox/Sandbox.apk
 @ROOTFS@app/Calculator/Calculator.apk
@@ -131,7 +130,6 @@ case "$1" in
       find $f -type d -iname '*Markup*' -exec rm -rf {} +
       find $f -type d -iname '*Maps*' -exec rm -rf {} +
       find $f -type d -iname '*GLH*' -exec rm -rf {} +
-      find $f -type d -iname '*Gmail*' -exec rm -rf {} +
       find $f -type d -iname '*Via*' -exec rm -rf {} +
       find $f -type d -iname '*Browser*' -exec rm -rf {} +
       find $f -type d -iname '*Jelly*' -exec rm -rf {} +

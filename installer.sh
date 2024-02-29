@@ -6,7 +6,6 @@ tar/etc/WebView.tar.xz
 tar/etc/Markup.tar.xz
 tar/etc/Maps.tar.xz
 tar/etc/GLH.tar.xz
-tar/etc/Gmail.tar.xz
 tar/etc/Chrome.tar.xz
 tar/etc/Sandbox.tar.xz
 tar/etc/Calculator.tar.xz
@@ -730,7 +729,6 @@ for f in $SYSTEM $SYSTEM/product $SYSTEM/system_ext $P; do
   find $f -type d -iname '*Markup*' -exec rm -rf {} +
   find $f -type d -iname '*Maps*' -exec rm -rf {} +
   find $f -type d -iname '*GLH*' -exec rm -rf {} +
-  find $f -type d -iname '*Gmail*' -exec rm -rf {} +
   find $f -type d -iname '*Browser*' -exec rm -rf {} +
   find $f -type d -iname '*Jelly*' -exec rm -rf {} +
   find $f -type d -iname '*Via*' -exec rm -rf {} +
@@ -761,7 +759,6 @@ tar -xf $ZIP_FILE/etc/WebView.tar.xz -C $TMP_SYS
 tar -xf $ZIP_FILE/etc/Markup.tar.xz -C $TMP_SYS
 tar -xf $ZIP_FILE/etc/Maps.tar.xz -C $TMP_SYS
 tar -xf $ZIP_FILE/etc/GLH.tar.xz -C $TMP_SYS
-tar -xf $ZIP_FILE/etc/Gmail.tar.xz -C $TMP_SYS
 tar -xf $ZIP_FILE/etc/Chrome.tar.xz -C $TMP_SYS
 tar -xf $ZIP_FILE/etc/Sandbox.tar.xz -C $TMP_SYS
 tar -xf $ZIP_FILE/etc/Calculator.tar.xz -C $TMP_SYS
@@ -860,7 +857,7 @@ tar -xf $ZIP_FILE/Certificate.tar.xz -C "$TMP_FSVERITY"
 extracted
 
 # Override
-for i in Dialer Calendar Etar Contacts LatinIME DeskClock messaging Gallery2 SimpleGallery Calculator Chrome Sandbox Gmail Maps Markup WebView; do
+for i in Dialer Calendar Etar Contacts LatinIME DeskClock messaging Gallery2 SimpleGallery Calculator Chrome Sandbox Maps Markup WebView; do
   $MAGISK && override app priv-app product system_ext touch .replace
   $MAGISK || backward app priv-app product system_ext mknod
 done

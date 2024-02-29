@@ -29,7 +29,6 @@ cat <<EOF
 WebView
 Markup
 Maps
-Gmail
 Chrome
 Sandbox
 Calculator
